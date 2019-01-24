@@ -1,6 +1,6 @@
 class ColorTransitioner {
     /**
-     * Transitions between a custom array of color or two colors.
+     * Transitions between a custom array of colors or two colors.
      * @param {Array} custom - An array of colors to transition between
      * @param {Object} from - The start color if custom isn't supplied
      * @param {Object} to - The end color if custom isn't supplied
