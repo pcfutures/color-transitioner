@@ -1,7 +1,7 @@
 class ColorTransitioner {
     /**
-     * Transitions between a custom array of colours or two colours.
-     * @param {Array} custom - An array of colours to transition between
+     * Transitions between a custom array of color or two colors.
+     * @param {Array} custom - An array of colors to transition between
      * @param {Object} from - The start color
      * @param {Object} to - The end color
      * @param {Number} interval - How often the color is transitioned
@@ -87,7 +87,7 @@ class ColorTransitioner {
 
             this.cb(this.currentColor);
 
-            // If we're custom, update our next index and set our next target colour
+            // If we're custom, update our next index and set our next target color
             if (this.isCustom) {
                 this.nextCustomIndex += 1;
                 this.targetColor = this.custom[this.nextCustomIndex];
