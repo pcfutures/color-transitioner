@@ -16,7 +16,7 @@ class ColorTransitioner {
      *         1,
      *         0,
      *         1,
-     *         ({ r, g, b }) => console.log(r, g, b)),
+     *         ({ r, g, b }) => console.log(r, g, b),
      *     );
      *
      *     transitioner.transition();
@@ -24,11 +24,11 @@ class ColorTransitioner {
     constructor (custom, from, to, interval = 1, delay = 0, amount = 1, cb = () => null) {
         this.isCustom = custom;
         this.custom = custom;
-        this.nextCustomIndex = 1;
+        this.nextCustomIndex = 0;
 
         this.originalColor = custom ? custom[0] : from;
         this.currentColor = custom ? custom[0] : from;
-        this.targetColor = custom ? custom[1] : to;
+        this.targetColor = custom ? custom[0] : to;
 
         this.intervalTime = interval;
 
@@ -39,6 +39,8 @@ class ColorTransitioner {
         this.cb = cb;
 
         this.interval = null;
+
+        this.isDone = false;
     }
 
     /**
@@ -100,7 +102,11 @@ class ColorTransitioner {
     /**
      * Clear our transition interval
      */
-    stop = () => clearInterval(this.interval);
+    stop = () => {
+        clearInterval(this.interval);
+
+        this.isDone = true;
+    }
 }
 
 export default ColorTransitioner;
